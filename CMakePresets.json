@@ -1,0 +1,54 @@
+{
+    "version": 6,
+    "configurePresets": [
+        {
+            "name": "common",
+            "hidden": true,
+            "generator": "Ninja",
+            "cacheVariables": {
+                "ABSL_BUILD_TESTING": "OFF",
+                "ABSL_USE_GOOGLETEST_HEAD": "OFF",
+                "CMAKE_CXX_STANDARD": "17",
+                "ABSL_PROPAGATE_CXX_STD": "ON",
+                "BUILD_SHARED_LIBS": "OFF",
+                "protobuf_BUILD_TESTS": "OFF",
+                "protobuf_BUILD_LIBUPB": "OFF",
+                "protobuf_LOCAL_DEPENDENCIES_ONLY": "ON",
+                "protobuf_MSVC_STATIC_RUNTIME": "OFF"
+            }
+        },
+        {
+            "name": "debug",
+            "displayName": "Debug",
+            "inherits": "common",
+            "binaryDir": "build/debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "release",
+            "displayName": "Release",
+            "inherits": "common",
+            "binaryDir": "build/release",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "debug",
+            "displayName": "Debug build",
+            "configurePreset": "debug",
+            "configuration": "Debug"
+        },
+        {
+            "name": "release",
+            "displayName": "Release build",
+            "configurePreset": "debug",
+            "configuration": "Release"
+        }
+    ]
+}
+
