@@ -46,7 +46,7 @@
         {
             "name": "release",
             "displayName": "Release build",
-            "configurePreset": "debug",
+            "configurePreset": "release",
             "configuration": "Release"
         }
     ]

@@ -1,8 +1,9 @@
-cmake_minimum_required(VERSION 3.30)
+cmake_minimum_required(VERSION 3.27)
 project(prefix)
 
 add_subdirectory(protobuf)
-#add_subdirectory(glm)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/protobuf/LICENSE DESTINATION . RENAME LICENSE-protobuf.txt)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/protobuf/third_party/abseil-cpp/LICENSE DESTINATION . RENAME LICENSE-abeil-cpp.txt)
 
 set(SDL_VERSION "2.30.10")
 set(SDL_NET_VERSION "2.2.0")
@@ -111,4 +112,4 @@ file(DOWNLOAD "https://github.com/g-truc/glm/releases/download/${GLM_VERSION}/${
     "${CMAKE_CURRENT_BINARY_DIR}/${GLM_ARCHIVE}")
 file(ARCHIVE_EXTRACT INPUT "${CMAKE_CURRENT_BINARY_DIR}/${GLM_ARCHIVE}")
 install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/glm DESTINATION include)
-
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/glm/copying.txt DESTINATION . RENAME LICENSE-glm.txt)
